@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 12:45:00 by zasabri           #+#    #+#             */
-/*   Updated: 2022/12/08 16:16:24 by zasabri          ###   ########.fr       */
+/*   Updated: 2022/12/08 17:55:01 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,5 +71,5 @@ int	main(int ac, char **av, char **env)
 		the_parent_process(av, env, fd);
 	}
 	else
-		write(2, "Invalid number of argements\n", 28);
+		write(2, "Invalid number of argements\nentry input like: <infile> ''cmd'' ''cmd'' <outfile>\n" , 81);
 }
