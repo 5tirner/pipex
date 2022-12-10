@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 12:41:40 by zasabri           #+#    #+#             */
-/*   Updated: 2022/12/08 16:18:44 by zasabri          ###   ########.fr       */
+/*   Updated: 2022/12/10 02:08:27 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,6 @@ char	*ft_path_cmd(char *cmd, char **env)
 	return (0);
 }
 
-void	ft_generate_error(void)
-{
-	perror("ERROR!... .");
-}
-
 void	ft_execute(char *argv, char **env)
 {
 	char	**cmd;
@@ -64,13 +59,7 @@ void	ft_execute(char *argv, char **env)
 		while (cmd[++i])
 			free(cmd[i]);
 		free(cmd);
-		return ;
+		exit(127);
 	}
-	if (execve(pathname, cmd, env) == -1)
-	{
-		write(2, "pipex: command not found: ", 26);
-		write(2, cmd[i], ft_strlen(cmd[i]));
-		write(2, "\n", 1);
-		return ;
-	}
+	execve(pathname, cmd, env);
 }

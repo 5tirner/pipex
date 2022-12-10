@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 12:48:01 by zasabri           #+#    #+#             */
-/*   Updated: 2022/12/07 14:45:48 by zasabri          ###   ########.fr       */
+/*   Updated: 2022/12/10 15:47:57 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,4 @@ void	the_child_process(char **av, char **envp, int *fd);
 void	the_parent_process(char **av, char **envp, int *fd);
 char	*ft_path_cmd(char *cmd, char **envp);
 void	ft_execute(char *argv, char **envp);
-void	ft_generate_error(void);
 #endif

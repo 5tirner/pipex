@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 12:45:00 by zasabri           #+#    #+#             */
-/*   Updated: 2022/12/08 17:55:01 by zasabri          ###   ########.fr       */
+/*   Updated: 2022/12/10 02:32:30 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	the_child_process(char **av, char **env, int *fd)
 {
 	int		fd_in;
 
-	fd_in = open(av[1], O_RDWR, 0777);
 	if (access(av[1], F_OK) == -1)
 	{
 		write(2, "pipex: ", 7);
@@ -26,6 +25,7 @@ void	the_child_process(char **av, char **env, int *fd)
 		write(2, "\n", 1);
 		exit (1);
 	}
+	fd_in = open(av[1], O_RDWR, 0777);
 	dup2(fd[1], STDOUT_FILENO);
 	dup2(fd_in, STDIN_FILENO);
 	close(fd[0]);
@@ -53,23 +53,29 @@ void	the_parent_process(char **av, char **env, int *fd)
 int	main(int ac, char **av, char **env)
 {
 	int		fd[2];
-	pid_t	pid1;
+	pid_t	pid;
 
 	if (ac == 5)
 	{
 		if (pipe(fd) == -1)
-			ft_generate_error();
-		pid1 = fork();
-		if (pid1 == -1)
+		{
+			write (2, "Creation of the pipe was unsuccessful\n", 38);
+			return (0);
+		}
+		pid = fork();
+		if (pid == -1)
 		{
 			write(2, "Creation of a child process was unsuccessful\n", 45);
 			return (0);
 		}
-		if (pid1 == 0)
+		if (pid == 0)
 			the_child_process(av, env, fd);
-		waitpid(pid1, NULL, 0);
+		waitpid(pid, NULL, 0);
 		the_parent_process(av, env, fd);
 	}
 	else
-		write(2, "Invalid number of argements\nentry input like: <infile> ''cmd'' ''cmd'' <outfile>\n" , 81);
+	{
+		write(2, "Invalid number of argements\n", 28);
+		write(2, "entry input like: <infile> ''cmd'' ''cmd'' <outfile>\n", 53);
+	}
 }
