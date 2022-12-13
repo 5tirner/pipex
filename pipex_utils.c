@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 12:41:40 by zasabri           #+#    #+#             */
-/*   Updated: 2022/12/11 19:54:01 by zasabri          ###   ########.fr       */
+/*   Updated: 2022/12/13 22:44:38 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ char	*ft_path_cmd(char *cmd, char **env)
 		free(path);
 		i++;
 	}
-	i = -1;
-	while (paths[++i])
+	i = 0;
+	while (paths[i++])
 		free(paths[i]);
 	free(paths);
 	return (0);
@@ -48,7 +48,7 @@ void	ft_execute(char *av, char **env)
 	int		i;
 	char	*pathname;
 
-	i = -1;
+	i = 0;
 	cmd = ft_split(av, ' ');
 	pathname = ft_path_cmd(cmd[0], env);
 	if (!pathname)
@@ -56,7 +56,7 @@ void	ft_execute(char *av, char **env)
 		write(2, "pipex: command not found: ", 26);
 		write(2, cmd[0], ft_strlen(cmd[0]));
 		write(2, "\n", 1);
-		while (cmd[++i])
+		while (cmd[i++])
 			free(cmd[i]);
 		free(cmd);
 		exit(127);

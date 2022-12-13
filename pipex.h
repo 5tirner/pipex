@@ -6,14 +6,13 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 12:48:01 by zasabri           #+#    #+#             */
-/*   Updated: 2022/12/10 15:47:57 by zasabri          ###   ########.fr       */
+/*   Updated: 2022/12/13 22:45:02 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PIPEX_H
 # define PIPEX_H
 
-# include <stdio.h>
 # include <unistd.h>
 # include <fcntl.h>
 # include <sys/wait.h>

@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 12:45:00 by zasabri           #+#    #+#             */
-/*   Updated: 2022/12/12 17:27:31 by zasabri          ###   ########.fr       */
+/*   Updated: 2022/12/13 22:43:59 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int	main(int ac, char **av, char **env)
 	}
 	else
 	{
-		write(2, "Invalid number of argements\n", 28);
+		write(2, "Invalid number of argements \n", 29);
 		return (1);
 	}
 }
