@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 12:45:00 by zasabri           #+#    #+#             */
-/*   Updated: 2022/12/10 02:32:30 by zasabri          ###   ########.fr       */
+/*   Updated: 2022/12/12 17:27:31 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	the_parent_process(char **av, char **env, int *fd)
 {
 	int		fd_out;
 
-	fd_out = open(av[4], O_RDWR | O_CREAT | O_TRUNC, 0777);
+	fd_out = open(av[4], O_RDWR | O_CREAT, 0777);
 	if (fd_out == -1)
 	{
 		write(2, "pipex: ", 7);
@@ -58,15 +58,12 @@ int	main(int ac, char **av, char **env)
 	if (ac == 5)
 	{
 		if (pipe(fd) == -1)
-		{
-			write (2, "Creation of the pipe was unsuccessful\n", 38);
-			return (0);
-		}
+			return (1);
 		pid = fork();
 		if (pid == -1)
 		{
 			write(2, "Creation of a child process was unsuccessful\n", 45);
-			return (0);
+			return (1);
 		}
 		if (pid == 0)
 			the_child_process(av, env, fd);
@@ -76,6 +73,6 @@ int	main(int ac, char **av, char **env)
 	else
 	{
 		write(2, "Invalid number of argements\n", 28);
-		write(2, "entry input like: <infile> ''cmd'' ''cmd'' <outfile>\n", 53);
+		return (1);
 	}
 }

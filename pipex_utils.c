@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 12:41:40 by zasabri           #+#    #+#             */
-/*   Updated: 2022/12/10 02:08:27 by zasabri          ###   ########.fr       */
+/*   Updated: 2022/12/11 19:54:01 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,14 @@ char	*ft_path_cmd(char *cmd, char **env)
 	return (0);
 }
 
-void	ft_execute(char *argv, char **env)
+void	ft_execute(char *av, char **env)
 {
 	char	**cmd;
 	int		i;
 	char	*pathname;
 
 	i = -1;
-	cmd = ft_split(argv, ' ');
+	cmd = ft_split(av, ' ');
 	pathname = ft_path_cmd(cmd[0], env);
 	if (!pathname)
 	{
