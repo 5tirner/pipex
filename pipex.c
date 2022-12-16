@@ -6,11 +6,12 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 12:45:00 by zasabri           #+#    #+#             */
-/*   Updated: 2022/12/13 22:43:59 by zasabri          ###   ########.fr       */
+/*   Updated: 2022/12/16 00:24:55 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
+#include <stdio.h>
 #include "../libft/libft.h"
 
 void	the_child_process(char **av, char **env, int *fd)
@@ -26,8 +27,8 @@ void	the_child_process(char **av, char **env, int *fd)
 		exit (1);
 	}
 	fd_in = open(av[1], O_RDWR, 0777);
-	dup2(fd[1], STDOUT_FILENO);
-	dup2(fd_in, STDIN_FILENO);
+	dup2(fd[1], 1);
+	dup2(fd_in, 0);
 	close(fd[0]);
 	ft_execute(av[2], env);
 }
@@ -44,8 +45,8 @@ void	the_parent_process(char **av, char **env, int *fd)
 		write(2, " : file doesn't open\n", 21);
 		exit (1);
 	}
-	dup2(fd[0], STDIN_FILENO);
-	dup2(fd_out, STDOUT_FILENO);
+	dup2(fd[0], 0);
+	dup2(fd_out, 1);
 	close(fd[1]);
 	ft_execute(av[3], env);
 }

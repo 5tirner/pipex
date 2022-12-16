@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 12:41:40 by zasabri           #+#    #+#             */
-/*   Updated: 2022/12/13 22:44:38 by zasabri          ###   ########.fr       */
+/*   Updated: 2022/12/15 00:05:24 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,5 @@ void	ft_execute(char *av, char **env)
 		free(cmd);
 		exit(127);
 	}
-	execve(pathname, cmd, env);
+	execve(pathname, cmd, NULL);
 }

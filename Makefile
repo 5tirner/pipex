@@ -6,7 +6,7 @@
 #    By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/07 13:28:25 by zasabri           #+#    #+#              #
-#    Updated: 2022/12/13 22:45:47 by zasabri          ###   ########.fr        #
+#    Updated: 2022/12/16 00:21:48 by zasabri          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ $(PROG) : $(OBJS)
 	$(CC) $(OBJS) -o $(PROG)
 
 clean :
-	$(RM) $(OBJS) $(BOBJS)
+	$(RM) $(OBJS)
 
 fclean : clean
 	$(RM) $(PROG)
