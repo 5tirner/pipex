@@ -6,13 +6,13 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 12:45:00 by zasabri           #+#    #+#             */
-/*   Updated: 2022/12/16 00:24:55 by zasabri          ###   ########.fr       */
+/*   Updated: 2022/12/16 22:14:09 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 #include <stdio.h>
-#include "../libft/libft.h"
+#include "./libft/libft.h"
 
 void	the_child_process(char **av, char **env, int *fd)
 {

@@ -6,12 +6,12 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 12:41:40 by zasabri           #+#    #+#             */
-/*   Updated: 2022/12/15 00:05:24 by zasabri          ###   ########.fr       */
+/*   Updated: 2022/12/16 22:14:22 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
-#include "../libft/libft.h"
+#include "./libft/libft.h"
 
 char	*ft_path_cmd(char *cmd, char **env)
 {
