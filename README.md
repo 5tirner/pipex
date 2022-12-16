@@ -2,7 +2,7 @@
 
 -- P | P E X --
 
-In this project you have to creatr a program that behaves like the following shell command:
+In this project you have to create a program that behaves like the following shell command:
 ```
 $ in_file cmd1 | cmd2 > out_file
 ```
