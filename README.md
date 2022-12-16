@@ -4,7 +4,7 @@
 
 In this project you have to create a program that behaves like the following shell command:
 ```
-$ in_file cmd1 | cmd2 > out_file
+$ < in_file cmd1 | cmd2 > out_file
 ```
 This program reads the contents of in_file as input passes it through cmd1 and then pipes the output to cmd2.\
 The final output is written to out_file.
