@@ -6,7 +6,7 @@
 /*   By: zasabri <zasabri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 12:45:00 by zasabri           #+#    #+#             */
-/*   Updated: 2022/12/16 22:14:09 by zasabri          ###   ########.fr       */
+/*   Updated: 2023/01/01 19:54:47 by zasabri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	the_parent_process(char **av, char **env, int *fd)
 {
 	int		fd_out;
 
-	fd_out = open(av[4], O_RDWR | O_CREAT, 0777);
+	fd_out = open(av[4], O_RDWR | O_CREAT | O_TRUNC, 0777);
 	if (fd_out == -1)
 	{
 		write(2, "pipex: ", 7);
